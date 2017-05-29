@@ -1,0 +1,14 @@
+-- Ingresar ADRCI
+adrci
+-- Para ver todos los incidentes:
+adrci> show incident
+
+ADR Home = /mount/dump01/oracle/DBATEST/diag/rdbms/dbatest/DBATEST:
+*************************************************************************
+INCIDENT_ID PROBLEM_KEY CREATE_TIME
+-------------------- ----------------------------------------------------------- ----------------------------------------
+57052 ORA 4031 2011-06-26 23:15:39.050000 -04:00
+
+-- Para ver un incidente en detalle
+
+adrci> SHOW INCIDENT -MODE DETAIL -P "INCIDENT_ID=57052"
