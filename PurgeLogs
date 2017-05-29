@@ -1,0 +1,32 @@
+-- Antes de lanzar el comando purge, tenemos que especificar el home en el cual tenemos nuestras trazas sobre todo si en nuestra 
+máquina tenemos más de un home
+Cuando escribimos el comando adrci nos muestra nuestro ADR base. Tenemos que establecer la ruta donde se encuentran nuestros 
+directorios de traza. Esto lo hacemos con un set home
+
+adrci
+ADRCI: Release 11.2.0.1.0 - Production on Mon Apr 7 11:02:00 2014
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+ADR base = "/oracle11g"
+adrci> set home diag/rdbms/dba11g/dba11g/               
+adrci> 
+
+-- Como vemos, establecemos la ruta a partir de la base que ya la tenemos seteadauna vez establecido nuestro ADR home, entonces podremos 
+lanzar el comando purge.
+
+
+
+-- Para limpiar todos los ficheros de trazas más antiguos a un día (1440 minutos)
+
+adrci> purge -age 1440 
+
+-- Nota:incluye los core files: cdmp*
+
+--Limpieza de core files mayores a 6 días
+
+adrci> purge -age 8640 -type CDUMP 
+
+--Puede que para limpiar completamente sea necesario lanzar el siguiente comando
+adrci> purge -age 8640 -type UTSCDMP 
+
+--Para limpiar las alertas  (ficheros xml) más antiguos que una hora
+adrci> purge -age 60 -type ALERT
