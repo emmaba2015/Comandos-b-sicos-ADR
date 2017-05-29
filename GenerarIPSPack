@@ -1,0 +1,6 @@
+-- Esta herramienta te permite crear un paquete si asi lo requieres para enviar a Oracle, esto te evita el trabajo de andar
+buscando los archivos que necesitas enviar a MOS para crear un Servie Request
+
+adrci> IPS PACK INCIDENT 57052 in '/mount/copy01';
+
+Generated package 1 in file /mount/copy01/ORA4031_20110717222427_COM_1.zip, mode complete
